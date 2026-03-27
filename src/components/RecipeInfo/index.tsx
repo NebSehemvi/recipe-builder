@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './RecipeInfo.module.css';
 
 interface RecipeInfoProps {
@@ -14,16 +14,37 @@ export const RecipeInfo: React.FC<RecipeInfoProps> = ({
   description,
   setDescription,
 }) => {
+  const [error, setError] = useState<string | null>(null);
+
+  const handleBlur = () => {
+    if (!recipeName.trim()) {
+      setError('required field');
+    } else {
+      setError(null);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRecipeName(e.target.value);
+    if (e.target.value.trim() && error) {
+      setError(null);
+    }
+  };
+
   return (
     <div className={styles.recipeInfo}>
       <div className={styles.recipeInfoGroup}>
-        <label htmlFor="recipeName">Recipe Name</label>
+        <div className={styles.labelWrapper}>
+          <label htmlFor="recipeName">Recipe Name</label>
+          {error && <span className={styles.errorText}>{error}</span>}
+        </div>
         <input
           id="recipeName"
           type="text"
-          className={styles.recipeNameInput}
+          className={`${styles.recipeNameInput} ${error ? styles.inputError : ''}`}
           value={recipeName}
-          onChange={(e) => setRecipeName(e.target.value)}
+          onChange={handleChange}
+          onBlur={handleBlur}
           placeholder="e.g. Apple Pie"
         />
       </div>

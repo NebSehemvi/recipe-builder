@@ -11,9 +11,21 @@
   gap: 5px;
 }
 
+.labelWrapper {
+  display: flex;
+  align-items: baseline;
+}
+
 .recipeInfoGroup label {
   font-weight: bold;
   color: #333;
+}
+
+.errorText {
+  color: #dc3545;
+  font-size: 12px;
+  margin-left: 10px;
+  font-weight: normal;
 }
 
 .recipeNameInput {
@@ -21,6 +33,11 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.inputError {
+  border-color: #dc3545;
 }
 
 .recipeDescriptionArea {
