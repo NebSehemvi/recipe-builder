@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 20px;
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.title {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.saveButton {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.recipeInfo {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.recipeInfoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.recipeInfoGroup label {
+  font-weight: bold;
+  color: #333;
+}
+
+.recipeNameInput {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.recipeDescriptionArea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 100px;
+  resize: vertical;
+}

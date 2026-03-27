@@ -1,0 +1,38 @@
+.recipeInfo {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.recipeInfoGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.recipeInfoGroup label {
+  font-weight: bold;
+  color: #333;
+}
+
+.recipeNameInput {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.recipeDescriptionArea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.saveButton {
+  margin-top: 20px;
+  width: 100%;
+}
