@@ -23,7 +23,9 @@ body {
 
 .saveButton {
   margin-top: 20px;
+  margin-left: auto;
   width: 100%;
+  max-width: 156px;
 }
 
 .recipeInfo {

@@ -24,7 +24,7 @@ export const RecipeInfo: React.FC<RecipeInfoProps> = ({
           className={styles.recipeNameInput}
           value={recipeName}
           onChange={(e) => setRecipeName(e.target.value)}
-          placeholder="e.g. Grandma's Apple Pie"
+          placeholder="e.g. Apple Pie"
         />
       </div>
       <div className={styles.recipeInfoGroup}>

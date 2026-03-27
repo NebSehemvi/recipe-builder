@@ -134,12 +134,12 @@ export const Search: React.FC<Props> = ({ onOptionClick, ingredients }) => {
       const foodArray = Array.isArray(foods) ? foods : [foods];
 
       const detailedFoods = await Promise.all(
-        foodArray.map((food: FatSecretFood) => getFoodDetails(food.food_id, token))
+        foodArray.map((food: FatSecretFood) => getFoodDetails(food.food_id, token ?? ''))
       );
 
       fatSecretOptions = detailedFoods
-        .filter((f): f is NonNullable<typeof f> => f !== null)
-        .map(detailed => mapIngredientToOption(detailed));
+        .filter((ing): ing is NonNullable<typeof ing> => ing !== null)
+        .map(ing => mapIngredientToOption(ing));
     } catch (error) {
       console.error('FatSecret search failed, using local only:', error);
     }
