@@ -43,7 +43,10 @@
     "skipLibCheck": true,
 
     "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
-    "noEmit": true,
-  }
+    "noEmit": true
+  },
+  "exclude": ["node_modules", "functions"]
 }
+

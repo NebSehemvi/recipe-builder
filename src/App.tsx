@@ -91,6 +91,8 @@ const App: React.FC = () => {
         </Button>
       </div>
 
+      <div className={styles.version}>v{APP_VERSION}</div>
+
       {modalMode === 'export' && (
         <Modal 
           title="Export Data" 

@@ -1,11 +1,11 @@
 {
   "name": "recipe-builder",
   "packageManager": "yarn@4.9.1",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc -p tsconfig.json && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,8 +17,10 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260317.1",
     "@types/axios": "^0.14.4",
     "@types/lodash.debounce": "^4.0.9",
+    "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-select": "^5.0.1",
