@@ -130,6 +130,10 @@ export const Search: React.FC<Props> = ({ onOptionClick, ingredients }) => {
         },
       });
 
+      if (response.data.error) {
+        return localMatches; 
+      }
+
       const foods = response.data.foods?.food || [];
       const foodArray = Array.isArray(foods) ? foods : [foods];
 
@@ -141,7 +145,7 @@ export const Search: React.FC<Props> = ({ onOptionClick, ingredients }) => {
         .filter((ing): ing is NonNullable<typeof ing> => ing !== null)
         .map(ing => mapIngredientToOption(ing));
     } catch (error) {
-      console.error('FatSecret search failed, using local only:', error);
+      return localMatches;
     }
 
     // FatSecret first, then Local

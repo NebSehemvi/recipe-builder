@@ -5,12 +5,12 @@ import { ProductRow } from './types';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
-  const { 
-    currentRecipe, 
+  const {
+    currentRecipe,
     savedRecipes,
     ingredients,
-    loadInitialData, 
-    saveRecipe, 
+    loadInitialData,
+    saveRecipe,
     startNewRecipe,
     importData
   } = useRecipeStore();
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const [rows, setRows] = useState<ProductRow[]>([]);
   const [recipeName, setRecipeName] = useState('');
   const [description, setDescription] = useState('');
-  
+
   const [modalMode, setModalMode] = useState<'none' | 'export' | 'import'>('none');
 
   useEffect(() => {
@@ -68,23 +68,23 @@ const App: React.FC = () => {
       <Sidebar onExport={handleExport} onImport={handleImport} />
 
       <div className={styles.container}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <header>
           <h1 className={styles.title}>Recipe Builder</h1>
-          <Button onClick={startNewRecipe}>+ New Recipe</Button>
-        </div>
-        
+          <Button onClick={startNewRecipe}>+ New</Button>
+        </header>
+
         <Table rows={rows} setRows={setRows} />
-        
-        <RecipeInfo 
-          recipeName={recipeName} 
+
+        <RecipeInfo
+          recipeName={recipeName}
           setRecipeName={setRecipeName}
           description={description}
           setDescription={setDescription}
         />
 
-        <Button 
-          variant="save" 
-          className={styles.saveButton} 
+        <Button
+          variant="save"
+          className={styles.saveButton}
           onClick={handleSave}
         >
           {currentRecipe ? 'Update Recipe' : 'Save Recipe'}
@@ -94,18 +94,18 @@ const App: React.FC = () => {
       <div className={styles.version}>v{APP_VERSION}</div>
 
       {modalMode === 'export' && (
-        <Modal 
-          title="Export Data" 
-          initialValue={getExportData()} 
-          readonly 
-          onClose={() => setModalMode('none')} 
+        <Modal
+          title="Export Data"
+          initialValue={getExportData()}
+          readonly
+          onClose={() => setModalMode('none')}
         />
       )}
 
       {modalMode === 'import' && (
-        <Modal 
-          title="Import Data" 
-          onClose={() => setModalMode('none')} 
+        <Modal
+          title="Import Data"
+          onClose={() => setModalMode('none')}
           onConfirm={onImportConfirm}
         />
       )}

@@ -95,46 +95,48 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
   const totalCaloriesPer100g = (per100g.fats * 9) + (per100g.carbs * 4) + (per100g.protein * 4);
 
   return (
-    <>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>Fats (per 100g)</th>
-            <th>Carbs (per 100g)</th>
-            <th>Protein (per 100g)</th>
-            <th>Weight (g)</th>
-            <th>Calories</th>
-            <th>Product Name</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(row => (
-            <tr key={row.id}>
-              <td><input type="text" className={styles.input} value={row.fats} onChange={e => updateRow(row.id, 'fats', e.target.value)} /></td>
-              <td><input type="text" className={styles.input} value={row.carbs} onChange={e => updateRow(row.id, 'carbs', e.target.value)} /></td>
-              <td><input type="text" className={styles.input} value={row.protein} onChange={e => updateRow(row.id, 'protein', e.target.value)} /></td>
-              <td><input type="text" className={styles.input} value={row.weight} onChange={e => updateRow(row.id, 'weight', e.target.value)} /></td>
-              <td className={styles.readonly} style={{ padding: '8px' }}>{calculateRowCalories(row).toFixed(0)}</td>
-              <td>
-                <input type="text" className={styles.input} value={row.name} onChange={e => updateRow(row.id, 'name', e.target.value)} />
-                <button className={styles.deleteButton} onClick={() => deleteRow(row.id)} title="Delete row">&times;</button>
-              </td>
+    <div className={styles.tableWrapper}>
+      <div className={styles.tableScroll}>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Fats (per 100g)</th>
+              <th>Carbs (per 100g)</th>
+              <th>Protein (per 100g)</th>
+              <th>Weight (g)</th>
+              <th>Calories</th>
+              <th>Product Name</th>
             </tr>
-          ))}
-        </tbody>
-        {rows.length > 0 && (
-          <tfoot>
-            <tr className={styles.totalRow}>
-              <td className={styles.readonly}>{per100g.fats.toFixed(2)}</td>
-              <td className={styles.readonly}>{per100g.carbs.toFixed(2)}</td>
-              <td className={styles.readonly}>{per100g.protein.toFixed(2)}</td>
-              <td className={styles.readonly}>{totals.totalWeight.toFixed(0)}</td>
-              <td className={styles.readonly}>{totalCaloriesPer100g.toFixed(0)}</td>
-              <td className={styles.readonly}><strong>Total per 100g dish</strong></td>
-            </tr>
-          </tfoot>
-        )}
-      </table>
+          </thead>
+          <tbody>
+            {rows.map(row => (
+              <tr key={row.id}>
+                <td><input type="text" className={styles.input} value={row.fats} onChange={e => updateRow(row.id, 'fats', e.target.value)} /></td>
+                <td><input type="text" className={styles.input} value={row.carbs} onChange={e => updateRow(row.id, 'carbs', e.target.value)} /></td>
+                <td><input type="text" className={styles.input} value={row.protein} onChange={e => updateRow(row.id, 'protein', e.target.value)} /></td>
+                <td><input type="text" className={styles.input} value={row.weight} onChange={e => updateRow(row.id, 'weight', e.target.value)} /></td>
+                <td className={styles.readonly} style={{ padding: '8px' }}>{calculateRowCalories(row).toFixed(0)}</td>
+                <td>
+                  <input type="text" className={styles.input} value={row.name} onChange={e => updateRow(row.id, 'name', e.target.value)} />
+                  <button className={styles.deleteButton} onClick={() => deleteRow(row.id)} title="Delete row">&times;</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          {rows.length > 0 && (
+            <tfoot>
+              <tr className={styles.totalRow}>
+                <td className={styles.readonly}>{per100g.fats.toFixed(2)}</td>
+                <td className={styles.readonly}>{per100g.carbs.toFixed(2)}</td>
+                <td className={styles.readonly}>{per100g.protein.toFixed(2)}</td>
+                <td className={styles.readonly}>{totals.totalWeight.toFixed(0)}</td>
+                <td className={styles.readonly}>{totalCaloriesPer100g.toFixed(0)}</td>
+                <td className={styles.readonly}><strong>Total per 100g dish</strong></td>
+              </tr>
+            </tfoot>
+          )}
+        </table>
+      </div>
       <div className={styles.controls}>
         {showSearch ? <Search onOptionClick={onOptionClick} ingredients={ingredients} /> : (
           <Button onClick={addManualRow}>Add manually</Button>
@@ -143,6 +145,6 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
           {showSearch ? 'Hide Search' : 'Search FatSecret'}
         </Button>
       </div>
-    </>
+    </div>
   );
 }
