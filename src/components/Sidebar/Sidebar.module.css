@@ -89,3 +89,29 @@
 .deleteRecipeBtn:hover {
   color: #a71d2a;
 }
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 20px 24px;
+    right: -324px;
+  }
+
+  .sidebarOpen {
+    right: 0;
+  }
+
+  .sidebarToggle {
+    right: 44px;
+  }
+
+  .sidebarOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(5px);
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "recipe-builder",
   "packageManager": "yarn@4.9.1",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",

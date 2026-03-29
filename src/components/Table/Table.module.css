@@ -7,17 +7,29 @@
   margin-bottom: 1.5rem;
 }
 
+.tableScroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 700px;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   border-left-width: 0;
   border-right-width: 0;
   padding: 8px;
   text-align: left;
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-right: 40px;
 }
 
 .table td {
@@ -51,7 +63,7 @@
 
 .deleteButton {
   position: absolute;
-  right: -28px;
+  right: 4px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
