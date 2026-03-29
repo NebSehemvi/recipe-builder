@@ -95,7 +95,7 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
   const totalCaloriesPer100g = (per100g.fats * 9) + (per100g.carbs * 4) + (per100g.protein * 4);
 
   return (
-    <>
+    <div className={styles.tableWrapper}>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -143,6 +143,6 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
           {showSearch ? 'Hide Search' : 'Search FatSecret'}
         </Button>
       </div>
-    </>
+    </div>
   );
 }

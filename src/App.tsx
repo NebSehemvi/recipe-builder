@@ -68,13 +68,13 @@ const App: React.FC = () => {
       <Sidebar onExport={handleExport} onImport={handleImport} />
 
       <div className={styles.container}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+        <header>
           <h1 className={styles.title}>Recipe Builder</h1>
           <Button onClick={startNewRecipe}>+ New Recipe</Button>
-        </div>
+        </header>
         
         <Table rows={rows} setRows={setRows} />
-        
+
         <RecipeInfo 
           recipeName={recipeName} 
           setRecipeName={setRecipeName}

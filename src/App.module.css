@@ -1,6 +1,14 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: #f8fafc;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
 }
 
 .layout {
@@ -10,9 +18,8 @@ body {
 }
 
 .container {
-  padding: 20px;
+  padding: 1.5rem 3rem;
   flex: 1;
-  max-width: 1000px;
   margin: 0 auto;
   font-family: sans-serif;
 }
