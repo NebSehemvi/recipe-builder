@@ -7,12 +7,9 @@ import styles from './App.module.css';
 const App: React.FC = () => {
   const {
     currentRecipe,
-    savedRecipes,
-    ingredients,
     loadInitialData,
     saveRecipe,
-    startNewRecipe,
-    importData
+    startNewRecipe
   } = useRecipeStore();
 
   const [rows, setRows] = useState<ProductRow[]>([]);
@@ -49,20 +46,6 @@ const App: React.FC = () => {
     setModalMode('import');
   };
 
-  const onImportConfirm = (jsonData: string) => {
-    const result = importData(jsonData);
-    if (result.success) {
-      setModalMode('none');
-      alert('Data imported successfully!');
-    } else {
-      alert(result.error);
-    }
-  };
-
-  const getExportData = () => {
-    return JSON.stringify({ recipes: savedRecipes, ingredients }, null, 2);
-  };
-
   return (
     <div className={styles.layout}>
       <Sidebar onExport={handleExport} onImport={handleImport} />
@@ -95,18 +78,15 @@ const App: React.FC = () => {
 
       {modalMode === 'export' && (
         <Modal
-          title="Export Data"
-          initialValue={getExportData()}
-          readonly
+          mode="export"
           onClose={() => setModalMode('none')}
         />
       )}
 
       {modalMode === 'import' && (
         <Modal
-          title="Import Data"
+          mode="import"
           onClose={() => setModalMode('none')}
-          onConfirm={onImportConfirm}
         />
       )}
     </div>

@@ -87,7 +87,7 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
     const carbs = parseNum(row.carbs);
     const protein = parseNum(row.protein);
     const weight = parseNum(row.weight);
-    
+
     const kcalPer100g = (fats * 9) + (carbs * 4) + (protein * 4);
     return (kcalPer100g / 100) * weight;
   };
@@ -100,9 +100,9 @@ export const Table: React.FC<TableProps> = ({ rows, setRows }) => {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>Fats (per 100g)</th>
-              <th>Carbs (per 100g)</th>
-              <th>Protein (per 100g)</th>
+              <th>Fats (100g)</th>
+              <th>Carbs (100g)</th>
+              <th>Protein (100g)</th>
               <th>Weight (g)</th>
               <th>Calories</th>
               <th>Product Name</th>

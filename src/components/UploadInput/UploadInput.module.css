@@ -1,0 +1,44 @@
+.dropZone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dropZone:hover {
+  border-color: #999;
+  background-color: #f1f1f1;
+}
+
+.dragging {
+  border-color: #007bff;
+  background-color: #eef6ff;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.dropZoneLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 16px;
+  cursor: pointer;
+  color: #555;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.dropZoneLabel * {
+  pointer-events: none;
+}
+
+.fileName {
+  color: #222;
+  font-weight: bold;
+}
